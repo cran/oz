@@ -14,4 +14,4 @@
 \details{
   These are not to be called by the user.
 }
-\keyword{utilities}
+\keyword{internal}
