@@ -1,15 +1,21 @@
-"oz" <- function(states = TRUE, coast = TRUE, xlim = c(113, 154),
-		 ylim = c(-44, -10), add = FALSE, ar = 1, eps = 0.25,
-		 sections = 1:16, visible, ...)
+ozRegion <- function(states = TRUE, coast = TRUE, xlim = NULL,
+		 ylim = NULL, eps = 0.25,
+		 sections = NULL, visible = NULL)
 {
-  if(!missing(xlim) || !missing(ylim)) {
-    rx <- range(xlim)
-    ry <- range(ylim)
+  if (!is.null(xlim) || !is.null(ylim)) {
+    if (is.null(xlim))
+      rx <- c(113, 154)
+    else
+      rx <- xlim
+    if (is.null(ylim))
+      ry <- c(-44, -10)
+    else
+      ry <- ylim
   }
   else {
     rx <- NULL
     ry <- NULL
-    if(!missing(sections)) {
+    if (!is.null(sections)) {
       for(i in sections) {
 	rx <- range(c(rx, .Oz.limits[[i]]$x))
 	ry <- range(c(ry, .Oz.limits[[i]]$y))
@@ -17,26 +23,26 @@
       rx <- rx + c( - eps, eps)
       ry <- ry + c( - eps, eps)
     }
-    else if(add) {
-      rx <- par("usr")[1:2]
-      ry <- par("usr")[3:4]
-    }
     else {
-      rx <- range(xlim)
-      ry <- range(ylim)
+      rx <- c(113, 154)
+      ry <- c(-44, -10)
     }
   }
   option <- rep(FALSE, 16)		# there are 16 border sections
-  if(!missing(visible)) {
+  if (!is.null(visible)) {
     option[visible] <- TRUE
   }
-  else if(!states) {
+  else if (!states) {
     option[1:7] <- TRUE    
   }
-  else if(!coast) {
+  else if (!coast) {
     option[8:16] <- TRUE
   }
-  else option[sections] <- TRUE
+  else if (!is.null(sections)) {
+    option[sections] <- TRUE
+  }
+  else
+    option[1:16] <- TRUE
 
   ".Oz.in2la" <- function(internal) {
     latitude <- (internal - 1998)/52.600000000000001 - 10
@@ -55,11 +61,33 @@
 		  .Oz.rc(rx, .Oz.limits[[i]]$x) && 
 		  .Oz.rc(ry, .Oz.limits[[i]]$y))
   }
+  lines <- list(sum(option))
+  index <- 1
+  for (i in (1:16)[option]) {
+    lines[[index]] <- list(x=.Oz.in2lo(.Oz.sections[[i]]$x), 
+      y=.Oz.in2la(.Oz.sections[[i]]$y))
+    index <- index + 1
+  }
+  region <- list(rangex=rx, rangey=ry, lines=lines)
+  class(region) <- "ozRegion"
+  region
+}
+
+oz <- function(states = TRUE, coast = TRUE, xlim = NULL,
+               ylim = NULL, add = FALSE, ar = 1, eps = 0.25,
+               sections = NULL, visible = NULL, ...) {
+  if (add) {
+    xlim <- par("usr")[1:2]
+    ylim <- par("usr")[3:4]
+  }
+  region <- ozRegion(states, coast, xlim, ylim, eps, sections, visible)
   oldpar <- par(err = -1)
   on.exit(par(oldpar))
   if(!add) {
     frame()
     pxy <- par("pin")
+    rx <- region$rangex
+    ry <- region$rangey
     dx <- ar * (rx[2] - rx[1])
     dy <- ry[2] - ry[1]
     coord <- min(pxy[1] / dx, pxy[2]/dy)
@@ -68,9 +96,8 @@
     par(usr = c(rx[1] - xextra, rx[2] + xextra,
 	        ry[1] - yextra, ry[2] + yextra))
   }
-  for(i in (1:16)[option])
-    lines(.Oz.in2lo(.Oz.sections[[i]]$x),
-	  .Oz.in2la(.Oz.sections[[i]]$y), ...)
+  for(i in region$lines)
+    lines(i$x, i$y)
 }
 
 "nsw"<-

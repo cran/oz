@@ -1,11 +1,23 @@
 \name{oz}
 \alias{oz}
+\alias{ozRegion}
 \title{Plot the Australian coastline and states}
 \description{Plot the Australian coastline and states.}
+\synopsis{
+oz(states = TRUE, coast = TRUE, xlim = NULL,
+   ylim = NULL, add = FALSE, ar = 1, eps = 0.25,
+   sections = NULL, visible = NULL, ...)
+
+ozRegion(states = TRUE, coast = TRUE, xlim = NULL,
+         ylim = NULL, eps = 0.25,
+         sections = NULL, visible = NULL)
+}
 \usage{
-oz(states = TRUE, coast = TRUE, xlim = c(113, 154),
-   ylim = c(-44, -10), add = FALSE, ar = 1, eps = 0.25,
-   sections = 1:16, visible, ...)
+oz(states = TRUE, coast = TRUE, ar = 1, eps = 0.25)
+oz(xlim = c(113, 154), ylim = c(-44, -10))
+oz(sections)
+oz(sections, visible)
+oz(\dots, add)
 }
 \arguments{
   \item{states}{logical flag: include mainland internal state
@@ -32,6 +44,14 @@ oz(states = TRUE, coast = TRUE, xlim = c(113, 154),
 
   Graphical parameters (see \code{par()}) may also be supplied as
   arguments to this function.
+}
+\value{
+  \code{ozRegion} returns an object of class \code{"ozRegion"},
+  which is a list with the following elements:
+  \code{rangex} and \code{rangey},
+  giving the range of values to be plotted;  and \code{lines},
+  a list of lists, where each sub-list describes a line to draw
+  via numeric elements \code{x} and \code{y}.
 }
 \examples{
 oz()                    # the lot
