@@ -1,3 +1,15 @@
+2000-12-24  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 1.0-5.
+	(Maintainer): New entry.
+
+2000-12-19  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 1.0-4.
+	(Title): Added.
+
+	* TITLE: Removed.
+
 Tue Feb 24 23:17:20 1998  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* README:  Copyright is now with KH.
