@@ -97,7 +97,7 @@ oz <- function(states = TRUE, coast = TRUE, xlim = NULL,
 	        ry[1] - yextra, ry[2] + yextra))
   }
   for(i in region$lines)
-    lines(i$x, i$y)
+    lines(i$x, i$y, ...)
 }
 
 "nsw"<-
@@ -108,7 +108,7 @@ function(...)
 "nt"<-
 function(...)
 {
-  oz(sections = c(2, 9:11))
+  oz(sections = c(2, 9:11), ...)
 }
 "qld"<-
 function(...)

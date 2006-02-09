@@ -1,3 +1,10 @@
+2006-02-09  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 1.0-11.
+
+	* R/oz.R (oz): Extra parameters should be passed on to lines(), as
+	documented.  Spotted by Peter Dunn <dunn@usq.edu.au>.
+
 2004-10-13  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 1.0-10.
