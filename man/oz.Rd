@@ -3,7 +3,7 @@
 \alias{ozRegion}
 \title{Plot the Australian coastline and states}
 \description{Plot the Australian coastline and states.}
-\synopsis{
+\usage{
 oz(states = TRUE, coast = TRUE, xlim = NULL,
    ylim = NULL, add = FALSE, ar = 1, eps = 0.25,
    sections = NULL, visible = NULL, ...)
@@ -11,13 +11,6 @@ oz(states = TRUE, coast = TRUE, xlim = NULL,
 ozRegion(states = TRUE, coast = TRUE, xlim = NULL,
          ylim = NULL, eps = 0.25,
          sections = NULL, visible = NULL)
-}
-\usage{
-oz(states = TRUE, coast = TRUE, ar = 1, eps = 0.25)
-oz(xlim = c(113, 154), ylim = c(-44, -10))
-oz(sections)
-oz(sections, visible)
-oz(\dots, add)
 }
 \arguments{
   \item{states}{logical flag: include mainland internal state
@@ -39,7 +32,7 @@ oz(\dots, add)
     QLD-SA(12), QLD-NSW(13), NSW-SA(14), NSW-VIC(15), VIC-SA(16).}
   \item{visible}{integer vector specifying which of the sections are
     actually to appear on the plot.}
-  \item{...}{optional arguments which will be passed through
+  \item{\dots}{optional arguments which will be passed through
     \code{lines}.}
 
   Graphical parameters (see \code{par()}) may also be supplied as
