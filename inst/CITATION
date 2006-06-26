@@ -1,0 +1,20 @@
+citHeader("To cite in publications use:")
+
+citEntry(entry = "Manual",
+	 title = "oz: Plot the Australian Coastline and States",
+	 author = personList(
+           person(first = "Bill", last = "Venables",
+                  email = "Bill.Venables@adelaide.edu.au"),
+           person(first = "Kurt", last = "Hornik",
+                  email = "Kurt.Hornik@R-project.org")),
+         year = 2006,
+	 note = {
+             paste("R package version 1.0-13.",
+                   "S original by Bill Venables, R port by Kurt Hornik.")
+         },
+	 url = "http://CRAN.R-project.org/",
+	 textVersion = {
+             paste("Bill Venables and Kurt Hornik (2006).",
+                   "oz: Plot the Australian Coastline and States.",
+                   "R package version 1.0-13.")
+         })
