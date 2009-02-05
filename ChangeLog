@@ -1,3 +1,9 @@
+2009-02-05  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 1.0-17.
+
+	* inst/CITATION: Improve.
+
 2007-07-12  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 1.0-16.
