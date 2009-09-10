@@ -8,9 +8,9 @@ note <- sprintf("R package version %s.", meta$Version)
 citEntry(entry = "Manual",
 	 title = "oz: Plot the Australian Coastline and States",
 	 author = personList(
-           person(first = "Bill", last = "Venables",
+           person("Bill", "Venables",
                   email = "Bill.Venables@adelaide.edu.au"),
-           person(first = "Kurt", last = "Hornik",
+           person("Kurt", "Hornik",
                   email = "Kurt.Hornik@R-project.org")),
          year = year,
 	 note = {
