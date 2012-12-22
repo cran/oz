@@ -1,7 +1,7 @@
 \name{oz}
 \alias{oz}
 \alias{ozRegion}
-\title{Plot the Australian coastline and states}
+\title{Plot the Australian Coastline and States}
 \description{Plot the Australian coastline and states.}
 \usage{
 oz(states = TRUE, coast = TRUE, xlim = NULL,

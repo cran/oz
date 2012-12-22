@@ -1,5 +1,5 @@
 \name{oz-states}
-\title{Plot specific Australian states}
+\title{Plot Specific Australian States}
 \alias{nsw}
 \alias{nt}
 \alias{qld}
