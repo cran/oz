@@ -7,7 +7,7 @@ note <- sprintf("R package version %s.", meta$Version)
 
 citEntry(entry = "Manual",
 	 title = "oz: Plot the Australian Coastline and States",
-	 author = personList(
+	 author = c(
            person("Bill", "Venables",
                   email = "Bill.Venables@adelaide.edu.au"),
            person("Kurt", "Hornik",
@@ -17,7 +17,7 @@ citEntry(entry = "Manual",
              paste(note,
                    "S original by Bill Venables, R port by Kurt Hornik.")
          },
-	 url = "http://CRAN.R-project.org/package=oz",
+	 url = "https://CRAN.R-project.org/package=oz",
 	 textVersion = {
              paste("Bill Venables and Kurt Hornik",
 	           sprintf("(%s).", year),
