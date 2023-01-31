@@ -28,7 +28,7 @@ ozRegion <- function(states = TRUE, coast = TRUE, xlim = NULL,
       ry <- c(-44, -10)
     }
   }
-  option <- rep(FALSE, 16)		# there are 16 border sections
+  option <- rep.int(FALSE, 16)		# there are 16 border sections
   if (!is.null(visible)) {
     option[visible] <- TRUE
   }
